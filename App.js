@@ -3,6 +3,7 @@ import {StyleSheet, View, Text} from 'react-native';
 
 const App: () => React$Node = () => {
   return (
+    // Yes, this is the component where all my navigation will go.
     <View style={styles.FirstScreen}>
       <Text>He - llo</Text>
     </View>
