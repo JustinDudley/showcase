@@ -1,20 +1,18 @@
-import React from 'react';
-import {StyleSheet, View, Text} from 'react-native';
+import 'react-native-gesture-handler';
+
+import * as React from 'react';
+import {View, Text} from 'react-native';
+
+import {NavigationContainer} from '@react-navigation/native';
 
 const App: () => React$Node = () => {
   return (
-    // Yes, this is the component where all my navigation will go.
-    <View style={styles.FirstScreen}>
-      <Text>He - llo</Text>
-    </View>
+    <NavigationContainer>
+      <View>
+        <Text>Hello</Text>
+      </View>
+    </NavigationContainer>
   );
 };
-
-const styles = StyleSheet.create({
-  FirstScreen: {
-    flex: 1,
-    marginTop: 50,
-  },
-});
 
 export default App;
