@@ -2,7 +2,7 @@ import React from 'react';
 
 import {View, Text, StyleSheet} from 'react-native';
 
-const Login: React.FC = () => {
+export const Login = () => {
   return (
     <View>
       <Text>hi from login</Text>
