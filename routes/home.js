@@ -7,7 +7,7 @@ export const Home = ({navigation}) => {
     <View>
       <Text style={styles.home}>Hello from Home</Text>
       <Button
-        title="press me"
+        title="Go to Login "
         onPress={() => {
           navigation.navigate('login');
         }}
