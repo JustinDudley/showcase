@@ -10,7 +10,7 @@ import {Home} from './routes/home.js';
 
 const Stack = createStackNavigator();
 
-const App: () => React$Node = () => {
+const App = () => {
   return (
     <NavigationContainer>
       <Stack.Navigator initialRouteName="home">

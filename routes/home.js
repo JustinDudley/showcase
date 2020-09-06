@@ -2,7 +2,7 @@ import React from 'react';
 
 import {View, Text, StyleSheet} from 'react-native';
 
-export const Home: () => React$Node = () => {
+export const Home = () => {
   return (
     <View>
       <Text style={styles.home}>Hello from Home</Text>
