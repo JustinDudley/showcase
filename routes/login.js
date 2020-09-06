@@ -3,7 +3,7 @@ import React, {useState} from 'react';
 import {View, Text, StyleSheet, Button, Alert} from 'react-native';
 
 export const Login = () => {
-  const [loggedInUser, setLoggedInUser] = useState('initialized');
+  const [loggedInUser, setLoggedInUser] = useState('');
 
   const LogMeIn = () => {
     setLoggedInUser('Nitsuj');
@@ -11,12 +11,11 @@ export const Login = () => {
 
   return (
     <View>
+      <Text style={styles.userBox}>
+        Current user: {loggedInUser ? loggedInUser : 'none'}
+      </Text>
       <Text style={styles.log}>hi from login</Text>
-      <Button
-        title="Press me to login.  The login name will Nitsuj"
-        onPress={LogMeIn}
-      />
-      <Text>{loggedInUser}</Text>
+      <Button title="Log in as Nitsuj" onPress={LogMeIn} />
     </View>
   );
 };
@@ -24,5 +23,11 @@ export const Login = () => {
 const styles = StyleSheet.create({
   log: {
     color: 'orange',
+  },
+  userBox: {
+    textAlign: 'right',
+    paddingRight: 15,
+    paddingTop: 10,
+    fontWeight: '800',
   },
 });
