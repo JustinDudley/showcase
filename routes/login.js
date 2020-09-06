@@ -5,7 +5,13 @@ import {View, Text, StyleSheet} from 'react-native';
 export const Login = () => {
   return (
     <View>
-      <Text>hi from login</Text>
+      <Text style={styles.log}>hi from login</Text>
     </View>
   );
 };
+
+const styles = StyleSheet.create({
+  log: {
+    color: 'orange',
+  },
+});
