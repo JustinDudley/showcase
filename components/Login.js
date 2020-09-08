@@ -1,3 +1,4 @@
+import {useIsFocused} from '@react-navigation/native';
 import React, {useState, useEffect} from 'react';
 import {View, Text, StyleSheet, Button, Alert} from 'react-native';
 import {TouchableHighlight} from 'react-native-gesture-handler';
@@ -12,6 +13,8 @@ export const Login = () => {
   const ShowAnAlert = () => {
     Alert.alert('Logout Button pressed');
   };
+
+  const isFocused = useIsFocused();
 
   useEffect(() => {
     // const googleExample = async () => {
@@ -30,7 +33,7 @@ export const Login = () => {
       }
     };
     getUser();
-  });
+  }, [isFocused]);
 
   return (
     <View style={styles.container}>
