@@ -27,9 +27,11 @@ const styles = StyleSheet.create({
     fontWeight: '700',
     paddingTop: 3,
     paddingBottom: 3,
+    color: 'white',
   },
   imageAndLoginContainer: {
     flexDirection: 'row',
+    justifyContent: 'space-between',
   },
   image: {
     width: 180,
