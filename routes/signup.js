@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
-
 import {View, Text, StyleSheet, Button, TextInput, Alert} from 'react-native';
+
+import {Header} from '../components/Header';
 
 // Reggie's globo used Async storage from **'react-native'**, which is now deprecated. Eexist some subtle differences
 import AsyncStorage from '@react-native-community/async-storage';
@@ -46,6 +47,7 @@ export const Signup = () => {
 
   return (
     <View>
+      <Header />
       <Text style={styles.userBox}>
         Current user: {loggedInUser ? loggedInUser : 'none'}
       </Text>

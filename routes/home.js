@@ -1,10 +1,12 @@
 import React from 'react';
-
 import {View, Text, StyleSheet, Button} from 'react-native';
+
+import {Header} from '../components/Header';
 
 export const Home = ({navigation}) => {
   return (
     <View>
+      <Header />
       <Text style={styles.home}>Hello from Home</Text>
       <Button
         style={styles.button}
