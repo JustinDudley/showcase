@@ -17,7 +17,7 @@ export const Signup = () => {
     setLoggedInUser('Nitsuj');
   };
 
-  const signUp = () => {
+  const signMeUp = () => {
     if (username === '' || password === '') {
       setMessagesReAsyncStorage('username and password must be non-empty');
     } else {
@@ -49,7 +49,7 @@ export const Signup = () => {
       <Text style={styles.userBox}>
         Current user: {loggedInUser ? loggedInUser : 'none'}
       </Text>
-      <Text style={styles.log}>hi from signup</Text>
+      <Text style={styles.log}>hi from Signup</Text>
       <Button title="Log in as Nitsuj" onPress={LogMeIn} />
 
       <View style={styles.signUp}>
@@ -68,7 +68,7 @@ export const Signup = () => {
           placeholder="Enter Password"
           secureTextEntry="true"
         />
-        <Button title="GO" onPress={signUp} />
+        <Button title="GO" onPress={signMeUp} />
       </View>
       <Text>
         'username: ' {username}, 'password: ', {password}

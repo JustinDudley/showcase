@@ -6,8 +6,8 @@ import {View, Text} from 'react-native';
 import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
 
-import {Home} from './routes/home.js';
-import {Signup} from './routes/signup';
+import {Home} from './routes/Home.js';
+import {Signup} from './routes/Signup';
 
 const Stack = createStackNavigator();
 
