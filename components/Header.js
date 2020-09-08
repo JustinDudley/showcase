@@ -8,11 +8,14 @@ export const Header = () => {
   return (
     <View>
       <Text style={styles.title}>Three Notable Figures</Text>
-      <Image
-        style={styles.image}
-        source={require('../assets/images/three_notable_figures.png')}
-      />
-      <Login />
+      <View style={styles.imageAndLoginContainer}>
+        <Image
+          style={styles.image}
+          source={require('../assets/images/three_notable_figures.png')}
+        />
+        {/* <Text>hello</Text> */}
+        <Login />
+      </View>
     </View>
   );
 };
@@ -24,6 +27,9 @@ const styles = StyleSheet.create({
     fontWeight: '700',
     paddingTop: 3,
     paddingBottom: 3,
+  },
+  imageAndLoginContainer: {
+    flexDirection: 'row',
   },
   image: {
     width: 180,

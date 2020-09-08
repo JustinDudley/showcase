@@ -3,15 +3,19 @@ import {View, Text, StyleSheet} from 'react-native';
 
 export const Login = () => {
   return (
-    <View>
-      <Text style={styles.login}>user: ____</Text>
+    <View style={styles.container}>
+      <Text style={styles.loginText}>user: ____</Text>
+      <Text style={styles.loginText}>Logout</Text>
     </View>
   );
 };
 
 const styles = StyleSheet.create({
-  login: {
-    marginLeft: 60,
-    color: 'green',
+  container: {
+    minWidth: 120,
+    textAlign: 'right',
+  },
+  loginText: {
+    textAlign: 'right',
   },
 });

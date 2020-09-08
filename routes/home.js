@@ -21,7 +21,7 @@ export const Home = ({navigation}) => {
 
 const styles = StyleSheet.create({
   home: {
-    marginTop: 30,
+    marginTop: 130,
     backgroundColor: 'lightblue',
   },
 });
