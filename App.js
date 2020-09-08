@@ -7,7 +7,7 @@ import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
 
 import {Home} from './routes/home.js';
-import {Login} from './routes/login';
+import {Signup} from './routes/signup';
 
 const Stack = createStackNavigator();
 
@@ -16,7 +16,7 @@ const App: () => React$Node = () => {
     <NavigationContainer>
       <Stack.Navigator initialRouteName="home">
         <Stack.Screen name="home" component={Home} />
-        <Stack.Screen name="login" component={Login} />
+        <Stack.Screen name="signup" component={Signup} />
       </Stack.Navigator>
     </NavigationContainer>
   );

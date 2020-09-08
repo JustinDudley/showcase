@@ -10,7 +10,7 @@ export const Home = ({navigation}) => {
         style={styles.button}
         title="Sign up, or Log in "
         onPress={() => {
-          navigation.navigate('login');
+          navigation.navigate('signup');
         }}
       />
     </View>

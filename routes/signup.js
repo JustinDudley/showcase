@@ -5,7 +5,7 @@ import {View, Text, StyleSheet, Button, TextInput, Alert} from 'react-native';
 // Reggie's globo used Async storage from **'react-native'**, which is now deprecated. Eexist some subtle differences
 import AsyncStorage from '@react-native-community/async-storage';
 
-export const Login = () => {
+export const Signup = () => {
   const [loggedInUser, setLoggedInUser] = useState('');
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
@@ -34,7 +34,7 @@ export const Login = () => {
   const getAllKeys = async () => {
     let keys = [];
     try {
-      keys = await AsyncStorage.getAllKeys();
+      keys = await JSON.stringify(AsyncStorage.getAllKeys());
     } catch (e) {
       // read key error
     }
@@ -49,7 +49,7 @@ export const Login = () => {
       <Text style={styles.userBox}>
         Current user: {loggedInUser ? loggedInUser : 'none'}
       </Text>
-      <Text style={styles.log}>hi from login</Text>
+      <Text style={styles.log}>hi from signup</Text>
       <Button title="Log in as Nitsuj" onPress={LogMeIn} />
 
       <View style={styles.signUp}>
