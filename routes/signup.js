@@ -7,6 +7,7 @@ import {Header} from '../components/Header';
 import AsyncStorage from '@react-native-community/async-storage';
 
 export const Signup = () => {
+  const LOGGED_IN_USER = 'loggedInUser';
   const [loggedInUser, setLoggedInUser] = useState('');
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
@@ -27,6 +28,7 @@ export const Signup = () => {
           setMessagesReAsyncStorage('This username is already in use');
         } else {
           AsyncStorage.setItem(username, password);
+          AsyncStorage.setItem(LOGGED_IN_USER, username);
         }
       });
     }
@@ -43,6 +45,14 @@ export const Signup = () => {
     // // // console.log(keys);
     // example console.log result:
     // ['@MyApp_user', '@MyApp_key']
+  };
+
+  const getLoggedInUserValue = async () => {
+    let user = '';
+    try {
+      user = await AsyncStorage.getItem(LOGGED_IN_USER);
+      Alert.alert(user ? user : 'null');
+    } catch (e) {}
   };
 
   return (
@@ -79,6 +89,10 @@ export const Signup = () => {
       <Button
         title="click to see what's in AsyncStorage"
         onPress={getAllKeys}
+      />
+      <Button
+        title="click to see the value of loggedInUser"
+        onPress={getLoggedInUserValue}
       />
     </View>
   );
