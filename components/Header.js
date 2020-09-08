@@ -7,7 +7,10 @@ export const Header = () => {
   return (
     <View>
       <Text style={styles.header}>hello from header</Text>
-      <Image source={require('../assets/images/pam_reed.png')} />
+      <Image
+        style={styles.image}
+        source={require('../assets/images/three_notable_figures.png')}
+      />
       <Login />
     </View>
   );
@@ -16,5 +19,9 @@ export const Header = () => {
 const styles = StyleSheet.create({
   header: {
     backgroundColor: 'red',
+  },
+  image: {
+    width: 180,
+    height: 77,
   },
 });
