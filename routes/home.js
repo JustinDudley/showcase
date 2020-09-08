@@ -4,6 +4,8 @@ import {View, Text, StyleSheet, Button} from 'react-native';
 import {Header} from '../components/Header';
 
 export const Home = ({navigation}) => {
+  const navigateMe = () => navigation.navigate('signup');
+
   return (
     <View>
       <Header />
@@ -11,9 +13,7 @@ export const Home = ({navigation}) => {
       <Button
         style={styles.button}
         title="Sign up, or Log in "
-        onPress={() => {
-          navigation.navigate('signup');
-        }}
+        onPress={navigateMe}
       />
     </View>
   );

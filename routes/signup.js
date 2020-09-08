@@ -6,7 +6,7 @@ import {Header} from '../components/Header';
 // Reggie's globo used Async storage from **'react-native'**, which is now deprecated. Eexist some subtle differences
 import AsyncStorage from '@react-native-community/async-storage';
 
-export const Signup = () => {
+export const Signup = ({navigation}) => {
   const LOGGED_IN_USER = 'loggedInUser';
   const [loggedInUser, setLoggedInUser] = useState('');
   const [username, setUsername] = useState('');
@@ -29,6 +29,8 @@ export const Signup = () => {
         } else {
           AsyncStorage.setItem(username, password);
           AsyncStorage.setItem(LOGGED_IN_USER, username);
+          setMessagesReAsyncStorage('');
+          setTimeout(() => navigation.navigate('home'), 2000);
         }
       });
     }

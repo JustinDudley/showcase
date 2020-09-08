@@ -6,40 +6,30 @@ import AsyncStorage from '@react-native-community/async-storage';
 
 export const Login = () => {
   const LOGGED_IN_USER = 'loggedInUser';
-  const [loggedInUser, setLoggedInUser] = useState('mrkkaduke');
+  const [loggedInUser, setLoggedInUser] = useState('marduke');
   const [userIsLoggedIn, setUserIsLoggedIn] = useState(false);
 
   const ShowAnAlert = () => {
     Alert.alert('Logout Button pressed');
   };
 
-  //   useEffect(Alert.alert('called from UseEffect'));
-  //
   useEffect(() => {
-    // setLoggedInUser('oyster');
-    const doTheTimeout = async () => {
-      setTimeout(() => {
-        const user = AsyncStorage.getItem(LOGGED_IN_USER);
-        setLoggedInUser(JSON.stringify(user));
-
-        // setLoggedInUser("I'm fine, thanks for asking.");
-      }, 100);
-    };
-
-    doTheTimeout();
-    // const getUser = async () => {
-    //   try {
-    //     const user = await AsyncStorage.getItem(LOGGED_IN_USER);
-    //     setLoggedInUser(user);
-    //     console.log('hello from inside getUser');
-    //     // Alert.alert('hello from inside getUser');
-    //     Alert.alert('inside getUser, loggedInUser is: ', loggedInUser);
-    //   } catch (e) {
-    //     Alert.alert('error: ', e);
-    //   }
+    // const googleExample = async () => {
+    //   const user = AsyncStorage.getItem(LOGGED_IN_USER);
+    //   setLoggedInUser(JSON.stringify(user));
     // };
-    // Alert.alert('right before calling getUser, ');
-    // getUser();
+    // googleExample();
+
+    const getUser = async () => {
+      try {
+        const user = await AsyncStorage.getItem(LOGGED_IN_USER);
+        setLoggedInUser(user);
+        console.log('hello from inside getUser');
+      } catch (e) {
+        Alert.alert('error: ', e);
+      }
+    };
+    getUser();
   });
 
   return (
