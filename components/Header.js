@@ -6,7 +6,7 @@ import {theme} from '../helpers/theme';
 
 export const Header = () => {
   return (
-    <View>
+    <View style={styles.viewWrapper}>
       <Text style={styles.title}>Three Notable Figures</Text>
       <View style={styles.imageAndLoginContainer}>
         <Image
@@ -21,12 +21,14 @@ export const Header = () => {
 };
 
 const styles = StyleSheet.create({
+  viewWrapper: {},
   title: {
     backgroundColor: theme.colors.coloradoColumbineExtraLight,
     textAlign: 'center',
     fontWeight: '700',
-    paddingTop: 3,
-    paddingBottom: 3,
+    fontSize: 20,
+    paddingTop: 4,
+    paddingBottom: 4,
     color: 'white',
   },
   imageAndLoginContainer: {

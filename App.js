@@ -15,7 +15,11 @@ const App: () => React$Node = () => {
   return (
     <NavigationContainer>
       <Stack.Navigator initialRouteName="home">
-        <Stack.Screen name="home" component={Home} />
+        <Stack.Screen
+          name="home"
+          component={Home}
+          // options={{headerShown: false}}
+        />
         <Stack.Screen name="signup" component={Signup} />
       </Stack.Navigator>
     </NavigationContainer>
