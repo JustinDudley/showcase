@@ -2,11 +2,12 @@ import React from 'react';
 import {View, Text, StyleSheet, Image} from 'react-native';
 
 import {Login} from './Login';
+import {theme} from '../helpers/theme';
 
 export const Header = () => {
   return (
     <View>
-      <Text style={styles.header}>hello from header</Text>
+      <Text style={styles.title}>Three Notable Figures</Text>
       <Image
         style={styles.image}
         source={require('../assets/images/three_notable_figures.png')}
@@ -17,8 +18,12 @@ export const Header = () => {
 };
 
 const styles = StyleSheet.create({
-  header: {
-    backgroundColor: 'red',
+  title: {
+    backgroundColor: theme.colors.coloradoColumbineExtraLight,
+    textAlign: 'center',
+    fontWeight: '700',
+    paddingTop: 3,
+    paddingBottom: 3,
   },
   image: {
     width: 180,
