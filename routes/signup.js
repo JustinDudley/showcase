@@ -30,7 +30,7 @@ export const Signup = ({navigation}) => {
           AsyncStorage.setItem(username, password);
           AsyncStorage.setItem(LOGGED_IN_USER, username);
           setMessagesReAsyncStorage('');
-          setTimeout(() => navigation.navigate('home'), 2000);
+          navigation.navigate('home');
         }
       });
     }

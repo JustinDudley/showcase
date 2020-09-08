@@ -6,23 +6,16 @@ import {theme} from '../helpers/theme';
 import AsyncStorage from '@react-native-community/async-storage';
 
 export const Login = () => {
+  const isFocused = useIsFocused(); // usage below causes useEffect to fire when navigated to from login
+
   const LOGGED_IN_USER = 'loggedInUser';
   const [loggedInUser, setLoggedInUser] = useState('marduke');
-  const [userIsLoggedIn, setUserIsLoggedIn] = useState(false);
 
   const ShowAnAlert = () => {
     Alert.alert('Logout Button pressed');
   };
 
-  const isFocused = useIsFocused();
-
   useEffect(() => {
-    // const googleExample = async () => {
-    //   const user = AsyncStorage.getItem(LOGGED_IN_USER);
-    //   setLoggedInUser(JSON.stringify(user));
-    // };
-    // googleExample();
-
     const getUser = async () => {
       try {
         const user = await AsyncStorage.getItem(LOGGED_IN_USER);
@@ -37,7 +30,6 @@ export const Login = () => {
 
   return (
     <View style={styles.container}>
-      {/* <Text style={styles.username}>Sam</Text> */}
       <Text style={styles.username}>{loggedInUser}</Text>
       <TouchableHighlight onPress={ShowAnAlert}>
         <Text style={styles.logout}>Logout</Text>
