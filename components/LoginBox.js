@@ -6,8 +6,8 @@ import {theme} from '../helpers/theme';
 import AsyncStorage from '@react-native-community/async-storage';
 import {constants} from '../helpers/constants.js';
 
-export const Login = () => {
-  const isFocused = useIsFocused(); // usage below causes useEffect to fire when navigated to from login
+export const LoginBox = () => {
+  const isFocused = useIsFocused(); // usage below causes useEffect to fire when navigated to from signup/registration
   const [loggedInUser, setLoggedInUser] = useState('marduke');
 
   const ShowAnAlert = () => {

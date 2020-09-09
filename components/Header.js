@@ -1,7 +1,7 @@
 import React from 'react';
 import {View, Text, StyleSheet, Image} from 'react-native';
 
-import {Login} from './Login';
+import {LoginBox} from './LoginBox';
 import {theme} from '../helpers/theme';
 
 export const Header = () => {
@@ -14,7 +14,7 @@ export const Header = () => {
           source={require('../assets/images/three_notable_figures.png')}
         />
         {/* <Text>hello</Text> */}
-        <Login />
+        <LoginBox />
       </View>
     </View>
   );
