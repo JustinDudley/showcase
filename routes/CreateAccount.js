@@ -70,9 +70,7 @@ export const CreateAccount = ({navigation}) => {
         />
         <Button title="GO" onPress={signMeUp} />
       </View>
-      <Text>
-        'username: ' {username}, 'password: ', {password}
-      </Text>
+
       <Text style={styles.message}>{messagesReAsyncStorage}</Text>
       <Button
         title="click to see what's in AsyncStorage"
