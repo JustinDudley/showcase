@@ -7,7 +7,7 @@ import AsyncStorage from '@react-native-community/async-storage';
 import {constants} from '../helpers/constants.js';
 
 export const LoginBox = ({navigation}) => {
-  const isFocused = useIsFocused(); // usage below causes useEffect to fire when navigated to from createAccount
+  const isFocused = useIsFocused(); // usage below causes useEffect to fire when navigated to from Account
   const [loggedInUser, setLoggedInUser] = useState('Marmaduke');
 
   const LogoutUser = () => {
@@ -36,7 +36,7 @@ export const LoginBox = ({navigation}) => {
       {loggedInUser === 'none' ? (
         <View>
           <TouchableHighlight
-            onPress={() => navigation.navigate('createAccount')}
+            onPress={() => navigation.navigate('account')}
             underlayColor="lightblue">
             <Text style={styles.name}>Log in</Text>
           </TouchableHighlight>

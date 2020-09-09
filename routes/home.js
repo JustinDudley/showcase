@@ -10,7 +10,7 @@ export const Home = ({navigation}) => {
       <View style={styles.home}>
         <Button
           title="Create account"
-          onPress={() => navigation.navigate('createAccount')}
+          onPress={() => navigation.navigate('account')}
         />
       </View>
     </View>

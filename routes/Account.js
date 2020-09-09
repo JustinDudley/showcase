@@ -9,7 +9,7 @@ import AsyncStorage from '@react-native-community/async-storage';
 
 console.log(constants.LOGGED_IN_USER);
 
-export const CreateAccount = ({navigation}) => {
+export const Account = ({navigation}) => {
   const [existingUsername, setExistingUsername] = useState('');
   const [existingPassword, setExistingPassword] = useState('');
   const [messagesReRegister, setMessagesReRegister] = useState('');
@@ -112,11 +112,11 @@ export const CreateAccount = ({navigation}) => {
 
         <Text style={styles.message}>{messagesReRegister}</Text>
         <Button
-          title="click to see what's in AsyncStorage"
+          title="For dev: click to see what's in AsyncStorage"
           onPress={getAllKeys}
         />
         <Button
-          title="click to see the value of loggedInUser"
+          title="For dev: click to see the value of loggedInUser"
           onPress={getLoggedInUserValue}
         />
       </View>
