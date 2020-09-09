@@ -13,6 +13,12 @@ export const Home = ({navigation}) => {
           onPress={() => navigation.navigate('account')}
         />
       </View>
+      <View>
+        <Button
+          title="check out the notable data!"
+          onPress={() => navigation.navigate('displayBios')}
+        />
+      </View>
     </View>
   );
 };

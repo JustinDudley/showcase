@@ -8,6 +8,7 @@ import {createStackNavigator} from '@react-navigation/stack';
 
 import {Home} from './routes/Home.js';
 import {Account} from './routes/Account';
+import {DisplayBios} from './routes/DisplayBios.js';
 
 const Stack = createStackNavigator();
 
@@ -21,6 +22,7 @@ const App: () => React$Node = () => {
           // options={{headerShown: false}}
         />
         <Stack.Screen name="account" component={Account} />
+        <Stack.Screen name="displayBios" component={DisplayBios} />
       </Stack.Navigator>
     </NavigationContainer>
   );
