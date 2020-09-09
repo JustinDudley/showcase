@@ -2,12 +2,14 @@ import React, {useState} from 'react';
 import {View, Text, StyleSheet, Button, TextInput, Alert} from 'react-native';
 
 import {Header} from '../components/Header';
+import {constants} from '../helpers/constants.js';
 
 // Reggie's globo used Async storage from **'react-native'**, which is now deprecated. Eexist some subtle differences
 import AsyncStorage from '@react-native-community/async-storage';
 
+console.log(constants.LOGGED_IN_USER);
+
 export const Signup = ({navigation}) => {
-  const LOGGED_IN_USER = 'loggedInUser';
   const [loggedInUser, setLoggedInUser] = useState('');
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
@@ -28,7 +30,7 @@ export const Signup = ({navigation}) => {
           setMessagesReAsyncStorage('This username is already in use');
         } else {
           AsyncStorage.setItem(username, password);
-          AsyncStorage.setItem(LOGGED_IN_USER, username);
+          AsyncStorage.setItem(constants.LOGGED_IN_USER, username);
           setMessagesReAsyncStorage('');
           navigation.navigate('home');
         }
@@ -52,7 +54,7 @@ export const Signup = ({navigation}) => {
   const getLoggedInUserValue = async () => {
     let user = '';
     try {
-      user = await AsyncStorage.getItem(LOGGED_IN_USER);
+      user = await AsyncStorage.getItem(constants.LOGGED_IN_USER);
       Alert.alert(user ? user : 'null');
     } catch (e) {}
   };

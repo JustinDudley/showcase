@@ -4,11 +4,10 @@ import {View, Text, StyleSheet, Button, Alert} from 'react-native';
 import {TouchableHighlight} from 'react-native-gesture-handler';
 import {theme} from '../helpers/theme';
 import AsyncStorage from '@react-native-community/async-storage';
+import {constants} from '../helpers/constants.js';
 
 export const Login = () => {
   const isFocused = useIsFocused(); // usage below causes useEffect to fire when navigated to from login
-
-  const LOGGED_IN_USER = 'loggedInUser';
   const [loggedInUser, setLoggedInUser] = useState('marduke');
 
   const ShowAnAlert = () => {
@@ -18,9 +17,8 @@ export const Login = () => {
   useEffect(() => {
     const getUser = async () => {
       try {
-        const user = await AsyncStorage.getItem(LOGGED_IN_USER);
+        const user = await AsyncStorage.getItem(constants.LOGGED_IN_USER);
         setLoggedInUser(user);
-        console.log('hello from inside getUser');
       } catch (e) {
         Alert.alert('error: ', e);
       }
@@ -31,7 +29,7 @@ export const Login = () => {
   return (
     <View style={styles.container}>
       <Text style={styles.username}>{loggedInUser}</Text>
-      <TouchableHighlight onPress={ShowAnAlert}>
+      <TouchableHighlight onPress={ShowAnAlert} underlayColor="lightblue">
         <Text style={styles.logout}>Logout</Text>
       </TouchableHighlight>
     </View>
