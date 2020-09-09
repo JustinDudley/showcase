@@ -1,0 +1,19 @@
+{
+  "notableData": {
+    "zoroaster": {
+      "name": "Zoroaster",
+      "birthdate": "2000 B.C.",
+      "bio": "founder of Zoroastrianism, first to articulate monotheism"
+    },
+    "quasar": {
+      "name": "Quasar",
+      "birthdate": "1950",
+      "bio": "His ability to go with the flow let's him regulate the powers of a dangerous but power-giving belt he wears"
+    },
+    "pamReed": {
+      "name": "Pam Reed",
+      "birthdate": "1961",
+      "bio": "In 2002 and 2003, Pam Reed was the overall winner (mens's and women's) of the Badwater Ultramarathon, a race from the continental United States' lowest elevation (in Death Valley) to (near) its highest elevation, a peak of 8000 ft."
+    }
+  }
+}
