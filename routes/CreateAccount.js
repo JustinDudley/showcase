@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, Fragment} from 'react';
 import {View, Text, StyleSheet, Button, TextInput, Alert} from 'react-native';
 
 import {Header} from '../components/Header';
@@ -10,20 +10,32 @@ import AsyncStorage from '@react-native-community/async-storage';
 console.log(constants.LOGGED_IN_USER);
 
 export const CreateAccount = ({navigation}) => {
-  const [username, setUsername] = useState('');
-  const [password, setPassword] = useState('');
+  const [existingUsername, setExistingUsername] = useState('');
+  const [existingPassword, setExistingPassword] = useState('');
   const [messagesReAsyncStorage, setMessagesReAsyncStorage] = useState('');
+  const [newUsername, setNewUsername] = useState('');
+  const [newPassword, setNewPassword] = useState('');
+  const [messagesReLogin, setMessagesReLogin] = useState('oyster');
+
+  const loginUser = async () => {
+    Alert.alert('login presses');
+    if (newUsername === '' || newPassword === '') {
+      setMessagesReLogin('please enter a username and password');
+    } else {
+      const storedPassword = await AsyncStorage.getItem(newUsername);
+    }
+  };
 
   const signMeUp = () => {
-    if (username === '' || password === '') {
+    if (existingUsername === '' || existingPassword === '') {
       setMessagesReAsyncStorage('username and password must be non-empty');
     } else {
-      AsyncStorage.getItem(username, (_err, result) => {
+      AsyncStorage.getItem(existingUsername, (_err, result) => {
         if (result !== null) {
           setMessagesReAsyncStorage('This username is already in use');
         } else {
-          AsyncStorage.setItem(username, password);
-          AsyncStorage.setItem(constants.LOGGED_IN_USER, username);
+          AsyncStorage.setItem(existingUsername, existingPassword);
+          AsyncStorage.setItem(constants.LOGGED_IN_USER, existingUsername);
           setMessagesReAsyncStorage('');
           navigation.navigate('home');
         }
@@ -50,37 +62,59 @@ export const CreateAccount = ({navigation}) => {
   };
 
   return (
-    <View>
+    <Fragment>
       <Header navigation={navigation} />
-      <View style={styles.createAccount}>
+
+      <View style={styles.box}>
         <Text style={styles.instructions}>
-          No account? Sign in below and your userame and password will be stored
-          in AsyncStorage.
+          To login, please enter your username and password below
         </Text>
         <TextInput
           style={styles.input}
-          onChangeText={(text) => setUsername(text)}
-          placeholder="Enter Userame"
+          onChangeText={(text) => setExistingUsername(text)}
+          placeholder="username"
         />
         <TextInput
           style={styles.input}
-          onChangeText={(text) => setPassword(text)}
-          placeholder="Enter Password"
-          secureTextEntry="true"
+          onChangeText={(text) => setExistingPassword(text)}
+          placeholder="password"
+          secureTextEntry={true}
         />
-        <Button title="GO" onPress={signMeUp} />
+        <Button title="Log in" onPress={loginUser} />
+        <Text style={styles.message}>{messagesReLogin}</Text>
       </View>
 
-      <Text style={styles.message}>{messagesReAsyncStorage}</Text>
-      <Button
-        title="click to see what's in AsyncStorage"
-        onPress={getAllKeys}
-      />
-      <Button
-        title="click to see the value of loggedInUser"
-        onPress={getLoggedInUserValue}
-      />
-    </View>
+      <View>
+        <View style={styles.box}>
+          <Text style={styles.instructions}>
+            No account? Sign in below and your userame and password will be
+            stored in AsyncStorage.
+          </Text>
+          <TextInput
+            style={styles.input}
+            onChangeText={(text) => setExistingUsername(text)}
+            placeholder="Enter Userame"
+          />
+          <TextInput
+            style={styles.input}
+            onChangeText={(text) => setExistingPassword(text)}
+            placeholder="Enter Password"
+            secureTextEntry="true"
+          />
+          <Button title="GO" onPress={signMeUp} />
+        </View>
+
+        <Text style={styles.message}>{messagesReAsyncStorage}</Text>
+        <Button
+          title="click to see what's in AsyncStorage"
+          onPress={getAllKeys}
+        />
+        <Button
+          title="click to see the value of loggedInUser"
+          onPress={getLoggedInUserValue}
+        />
+      </View>
+    </Fragment>
   );
 };
 
@@ -91,7 +125,7 @@ const styles = StyleSheet.create({
     paddingTop: 10,
     fontWeight: '800',
   },
-  createAccount: {
+  box: {
     marginTop: 50,
     marginLeft: 15,
     marginRight: 15,
@@ -111,5 +145,9 @@ const styles = StyleSheet.create({
     borderColor: 'grey',
     borderWidth: 1,
   },
-  message: {color: 'purple'},
+  message: {
+    color: 'red',
+    marginLeft: 6,
+    marginBottom: 10,
+  },
 });
