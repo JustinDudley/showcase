@@ -9,12 +9,9 @@ export const Home = ({navigation}) => {
   return (
     <View>
       <Header />
-      <Text style={styles.home}>Hello from Home</Text>
-      <Button
-        style={styles.button}
-        title="Sign up, or Log in "
-        onPress={navigateMe}
-      />
+      <View style={styles.home}>
+        <Button title="Create account" onPress={navigateMe} />
+      </View>
     </View>
   );
 };
