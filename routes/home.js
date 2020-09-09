@@ -4,13 +4,14 @@ import {View, Text, StyleSheet, Button} from 'react-native';
 import {Header} from '../components/Header';
 
 export const Home = ({navigation}) => {
-  const navigateMe = () => navigation.navigate('createAccount');
-
   return (
     <View>
-      <Header />
+      <Header navigation={navigation} />
       <View style={styles.home}>
-        <Button title="Create account" onPress={navigateMe} />
+        <Button
+          title="Create account"
+          onPress={() => navigation.navigate('createAccount')}
+        />
       </View>
     </View>
   );

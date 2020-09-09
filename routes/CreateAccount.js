@@ -51,7 +51,7 @@ export const CreateAccount = ({navigation}) => {
 
   return (
     <View>
-      <Header />
+      <Header navigation={navigation} />
       <View style={styles.createAccount}>
         <Text style={styles.instructions}>
           No account? Sign in below and your userame and password will be stored

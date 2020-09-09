@@ -6,7 +6,7 @@ import {theme} from '../helpers/theme';
 import AsyncStorage from '@react-native-community/async-storage';
 import {constants} from '../helpers/constants.js';
 
-export const LoginBox = () => {
+export const LoginBox = ({navigation}) => {
   const isFocused = useIsFocused(); // usage below causes useEffect to fire when navigated to from createAccount
   const [loggedInUser, setLoggedInUser] = useState('Marmaduke');
 
@@ -35,7 +35,11 @@ export const LoginBox = () => {
     <View style={styles.container}>
       {loggedInUser === 'none' ? (
         <View>
-          <Text>no user</Text>
+          <TouchableHighlight
+            onPress={() => navigation.navigate('home')}
+            underlayColor="lightblue">
+            <Text style={styles.logout}>Log in</Text>
+          </TouchableHighlight>
         </View>
       ) : (
         <View>
