@@ -36,7 +36,7 @@ export const CreateAccount = ({navigation}) => {
     try {
       keys = await JSON.stringify(AsyncStorage.getAllKeys());
     } catch (e) {
-      // read key error
+      Alert.alert('error: ', e);
     }
     Alert.alert(keys);
   };

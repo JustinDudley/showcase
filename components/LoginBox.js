@@ -1,6 +1,6 @@
 import {useIsFocused} from '@react-navigation/native';
 import React, {useState, useEffect} from 'react';
-import {View, Text, StyleSheet, Button, Alert} from 'react-native';
+import {View, Text, StyleSheet, Alert} from 'react-native';
 import {TouchableHighlight} from 'react-native-gesture-handler';
 import {theme} from '../helpers/theme';
 import AsyncStorage from '@react-native-community/async-storage';

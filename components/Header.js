@@ -1,5 +1,5 @@
 import React from 'react';
-import {View, Text, StyleSheet, Image, Button} from 'react-native';
+import {View, Text, StyleSheet, Image} from 'react-native';
 
 import {LoginBox} from './LoginBox';
 import {theme} from '../helpers/theme';
@@ -13,7 +13,6 @@ export const Header = ({navigation}) => {
           style={styles.image}
           source={require('../assets/images/three_notable_figures.png')}
         />
-        {/* <Text>hello</Text> */}
         <LoginBox navigation={navigation} />
       </View>
     </View>
