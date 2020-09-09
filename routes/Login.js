@@ -1,14 +1,20 @@
 import React, {useState} from 'react';
 
 import {View, Text, TextInput, Button, StyleSheet, Alert} from 'react-native';
+import AsyncStorage from '@react-native-community/async-storage';
 
 export const Login = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [messageText, setMessageText] = useState('oyster');
 
-  const loginUser = () => {
-    Alert.alert('hi');
+  const loginUser = async () => {
+    Alert.alert('login presses');
+    if (username === '' || password === '') {
+      setMessageText('please enter a username and password');
+    } else {
+      const storedPassword = await AsyncStorage.getItem(username);
+    }
   };
 
   return (
