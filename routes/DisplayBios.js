@@ -6,6 +6,7 @@ import {theme} from '../helpers/theme';
 export const DisplayBios = () => {
   const [data, setData] = useState({});
 
+  // FIRST STAB AT USEEFFECT
   // useEffect(() => {
   //   Alert.alert('useEffect is working');
   //   fetch('localhost3000')
