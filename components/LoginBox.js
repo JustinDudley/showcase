@@ -36,9 +36,9 @@ export const LoginBox = ({navigation}) => {
       {loggedInUser === 'none' ? (
         <View>
           <TouchableHighlight
-            onPress={() => navigation.navigate('home')}
+            onPress={() => navigation.navigate('login')}
             underlayColor="lightblue">
-            <Text style={styles.logout}>Log in</Text>
+            <Text style={styles.name}>Log in</Text>
           </TouchableHighlight>
         </View>
       ) : (
