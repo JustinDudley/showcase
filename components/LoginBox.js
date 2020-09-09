@@ -33,10 +33,18 @@ export const LoginBox = () => {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.name}>{loggedInUser}</Text>
-      <TouchableHighlight onPress={LogoutUser} underlayColor="lightblue">
-        <Text style={styles.logout}>Logout</Text>
-      </TouchableHighlight>
+      {loggedInUser === 'none' ? (
+        <View>
+          <Text>no user</Text>
+        </View>
+      ) : (
+        <View>
+          <Text style={styles.name}>{loggedInUser}</Text>
+          <TouchableHighlight onPress={LogoutUser} underlayColor="lightblue">
+            <Text style={styles.logout}>Logout</Text>
+          </TouchableHighlight>
+        </View>
+      )}
     </View>
   );
 };
