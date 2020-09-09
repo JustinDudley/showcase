@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react';
 
-import {View, Text, Button, StyleSheet, Alert} from 'react-native';
+import {View, Text, StyleSheet} from 'react-native';
 import {theme} from '../helpers/theme';
 
 export const DisplayBios = () => {
@@ -13,10 +13,6 @@ export const DisplayBios = () => {
   //     .then((res) => res.json)
   //     .then((jsonData) => setData(JSON.parse(jsonData)));
   // });
-  console.log('pepper');
-  console.log(
-    require('../assets/data/db.json').notableData.pamReed.bio.toString(),
-  );
 
   return (
     <View>
@@ -29,9 +25,10 @@ export const DisplayBios = () => {
       <Text style={styles.note}>
         In future, I will make more of this page. Right now, I am grabbing data
         with 'require()'. I want to grab the data using a fetch call. In future
-        I will set up a dev server using json-server. I may need to use ngrok
-        too. In my project called Countdown, I did this successfully.
-        dev/reactnative/pluralsight/hendrick/Countdown
+        I will set up a dev server using json-server. (No need to use ngrok: I
+        only did that with my Countdown expo project because my phone couldn't
+        directly access port 3000 on my laptop). In my project called Countdown,
+        I did this successfully. dev/reactnative/pluralsight/hendrick/Countdown
       </Text>
     </View>
   );
