@@ -14,6 +14,15 @@ export const Login = () => {
     Alert.alert('Logout Button pressed');
   };
 
+  const LogoutUser = () => {
+    try {
+      AsyncStorage.setItem(constants.LOGGED_IN_USER, null);
+    } catch (e) {
+      Alert.alert('error: ', e);
+    }
+    setLoggedInUser(null);
+  };
+
   useEffect(() => {
     const getUser = async () => {
       try {
@@ -29,7 +38,7 @@ export const Login = () => {
   return (
     <View style={styles.container}>
       <Text style={styles.username}>{loggedInUser}</Text>
-      <TouchableHighlight onPress={ShowAnAlert} underlayColor="lightblue">
+      <TouchableHighlight onPress={LogoutUser} underlayColor="lightblue">
         <Text style={styles.logout}>Logout</Text>
       </TouchableHighlight>
     </View>
