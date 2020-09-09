@@ -12,31 +12,37 @@ console.log(constants.LOGGED_IN_USER);
 export const CreateAccount = ({navigation}) => {
   const [existingUsername, setExistingUsername] = useState('');
   const [existingPassword, setExistingPassword] = useState('');
-  const [messagesReAsyncStorage, setMessagesReAsyncStorage] = useState('');
+  const [messagesReRegister, setMessagesReRegister] = useState('');
   const [newUsername, setNewUsername] = useState('');
   const [newPassword, setNewPassword] = useState('');
-  const [messagesReLogin, setMessagesReLogin] = useState('oyster');
+  const [messagesReLogin, setMessagesReLogin] = useState('');
 
   const loginUser = async () => {
-    Alert.alert('login presses');
     if (newUsername === '' || newPassword === '') {
       setMessagesReLogin('please enter a username and password');
     } else {
       const storedPassword = await AsyncStorage.getItem(newUsername);
+      if (storedPassword !== newPassword) {
+        setMessagesReLogin("That username/password combination didn't work");
+      } else {
+        AsyncStorage.setItem(constants.LOGGED_IN_USER, newUsername);
+        setMessagesReLogin('');
+        navigation.navigate('home');
+      }
     }
   };
 
   const signMeUp = () => {
     if (existingUsername === '' || existingPassword === '') {
-      setMessagesReAsyncStorage('username and password must be non-empty');
+      setMessagesReRegister('username and password must be non-empty');
     } else {
       AsyncStorage.getItem(existingUsername, (_err, result) => {
         if (result !== null) {
-          setMessagesReAsyncStorage('This username is already in use');
+          setMessagesReRegister('This username is already in use');
         } else {
           AsyncStorage.setItem(existingUsername, existingPassword);
           AsyncStorage.setItem(constants.LOGGED_IN_USER, existingUsername);
-          setMessagesReAsyncStorage('');
+          setMessagesReRegister('');
           navigation.navigate('home');
         }
       });
@@ -67,16 +73,16 @@ export const CreateAccount = ({navigation}) => {
 
       <View style={styles.box}>
         <Text style={styles.instructions}>
-          To login, please enter your username and password below
+          To login, please enter your username and password below.
         </Text>
         <TextInput
           style={styles.input}
-          onChangeText={(text) => setExistingUsername(text)}
+          onChangeText={(text) => setNewUsername(text)}
           placeholder="username"
         />
         <TextInput
           style={styles.input}
-          onChangeText={(text) => setExistingPassword(text)}
+          onChangeText={(text) => setNewPassword(text)}
           placeholder="password"
           secureTextEntry={true}
         />
@@ -87,8 +93,8 @@ export const CreateAccount = ({navigation}) => {
       <View>
         <View style={styles.box}>
           <Text style={styles.instructions}>
-            No account? Sign in below and your userame and password will be
-            stored in AsyncStorage.
+            No account? Register below. Your userame and password will be stored
+            in AsyncStorage, and you will be automatically logged in.
           </Text>
           <TextInput
             style={styles.input}
@@ -104,7 +110,7 @@ export const CreateAccount = ({navigation}) => {
           <Button title="GO" onPress={signMeUp} />
         </View>
 
-        <Text style={styles.message}>{messagesReAsyncStorage}</Text>
+        <Text style={styles.message}>{messagesReRegister}</Text>
         <Button
           title="click to see what's in AsyncStorage"
           onPress={getAllKeys}
