@@ -9,17 +9,10 @@ import AsyncStorage from '@react-native-community/async-storage';
 
 console.log(constants.LOGGED_IN_USER);
 
-export const Signup = ({navigation}) => {
-  const [loggedInUser, setLoggedInUser] = useState('');
+export const CreateAccount = ({navigation}) => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
-  const [messagesReAsyncStorage, setMessagesReAsyncStorage] = useState(
-    '(messages re AsyncStorage)',
-  );
-
-  const LogMeIn = () => {
-    setLoggedInUser('Nitsuj');
-  };
+  const [messagesReAsyncStorage, setMessagesReAsyncStorage] = useState('');
 
   const signMeUp = () => {
     if (username === '' || password === '') {
@@ -46,9 +39,6 @@ export const Signup = ({navigation}) => {
       // read key error
     }
     Alert.alert(keys);
-    // // // console.log(keys);
-    // example console.log result:
-    // ['@MyApp_user', '@MyApp_key']
   };
 
   const getLoggedInUserValue = async () => {
@@ -62,14 +52,8 @@ export const Signup = ({navigation}) => {
   return (
     <View>
       <Header />
-      <Text style={styles.userBox}>
-        Current user: {loggedInUser ? loggedInUser : 'none'}
-      </Text>
-      <Text style={styles.log}>hi from Signup</Text>
-      <Button title="Log in as Nitsuj" onPress={LogMeIn} />
-
-      <View style={styles.signUp}>
-        <Text>
+      <View style={styles.createAccount}>
+        <Text style={styles.instructions}>
           No account? Sign in below and your userame and password will be stored
           in AsyncStorage.
         </Text>
@@ -103,25 +87,29 @@ export const Signup = ({navigation}) => {
 };
 
 const styles = StyleSheet.create({
-  log: {
-    color: 'orange',
-  },
   userBox: {
     textAlign: 'right',
     paddingRight: 15,
     paddingTop: 10,
     fontWeight: '800',
   },
-  signUp: {
+  createAccount: {
+    marginTop: 50,
     marginLeft: 15,
     marginRight: 15,
+    marginBottom: 25,
     borderColor: 'black',
     borderWidth: 1,
   },
+  instructions: {
+    padding: 10,
+    paddingBottom: 30,
+  },
   input: {
-    marginBottom: 6,
-    marginLeft: 4,
-    marginRight: 4,
+    marginBottom: 8,
+    marginLeft: 8,
+    marginRight: 8,
+    padding: 3,
     borderColor: 'grey',
     borderWidth: 1,
   },

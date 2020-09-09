@@ -7,24 +7,20 @@ import AsyncStorage from '@react-native-community/async-storage';
 import {constants} from '../helpers/constants.js';
 
 export const LoginBox = () => {
-  const isFocused = useIsFocused(); // usage below causes useEffect to fire when navigated to from signup/registration
-  const [loggedInUser, setLoggedInUser] = useState('marduke');
-
-  const ShowAnAlert = () => {
-    Alert.alert('Logout Button pressed');
-  };
+  const isFocused = useIsFocused(); // usage below causes useEffect to fire when navigated to from createAccount
+  const [loggedInUser, setLoggedInUser] = useState('Marmaduke');
 
   const LogoutUser = () => {
+    setLoggedInUser('none');
     try {
-      AsyncStorage.setItem(constants.LOGGED_IN_USER, null);
+      AsyncStorage.setItem(constants.LOGGED_IN_USER, 'none');
     } catch (e) {
       Alert.alert('error: ', e);
     }
-    setLoggedInUser(null);
   };
 
   useEffect(() => {
-    const getUser = async () => {
+    const getUserFromAsyncStorage = async () => {
       try {
         const user = await AsyncStorage.getItem(constants.LOGGED_IN_USER);
         setLoggedInUser(user);
@@ -32,12 +28,12 @@ export const LoginBox = () => {
         Alert.alert('error: ', e);
       }
     };
-    getUser();
+    getUserFromAsyncStorage();
   }, [isFocused]);
 
   return (
     <View style={styles.container}>
-      <Text style={styles.username}>{loggedInUser}</Text>
+      <Text style={styles.name}>{loggedInUser}</Text>
       <TouchableHighlight onPress={LogoutUser} underlayColor="lightblue">
         <Text style={styles.logout}>Logout</Text>
       </TouchableHighlight>
@@ -55,7 +51,7 @@ const styles = StyleSheet.create({
     minWidth: 120,
     textAlign: 'right',
   },
-  username: {
+  name: {
     textAlign: 'right',
     color: theme.colors.coloradoColumbineDark,
     fontWeight: '900',

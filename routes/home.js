@@ -4,7 +4,7 @@ import {View, Text, StyleSheet, Button} from 'react-native';
 import {Header} from '../components/Header';
 
 export const Home = ({navigation}) => {
-  const navigateMe = () => navigation.navigate('signup');
+  const navigateMe = () => navigation.navigate('createAccount');
 
   return (
     <View>

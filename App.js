@@ -7,7 +7,7 @@ import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
 
 import {Home} from './routes/Home.js';
-import {Signup} from './routes/Signup';
+import {CreateAccount} from './routes/CreateAccount';
 
 const Stack = createStackNavigator();
 
@@ -20,7 +20,7 @@ const App: () => React$Node = () => {
           component={Home}
           // options={{headerShown: false}}
         />
-        <Stack.Screen name="signup" component={Signup} />
+        <Stack.Screen name="createAccount" component={CreateAccount} />
       </Stack.Navigator>
     </NavigationContainer>
   );
