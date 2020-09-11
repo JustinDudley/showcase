@@ -9,7 +9,7 @@ export const DisplayBios = () => {
   // FIRST STAB AT USEEFFECT
   // useEffect(() => {
   //   Alert.alert('useEffect is working');
-  //   fetch('localhost3000')
+  //   fetch('http://localhost3000')
   //     .then((res) => res.json)
   //     .then((jsonData) => setData(JSON.parse(jsonData)));
   // });
